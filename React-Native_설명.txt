@@ -1,0 +1,76 @@
+index.js
+- {$project_root}/index.js 는 프로젝트를 실행 시 가장 먼저 실행되는 기점.
+- index.js 엔 보통 App.js를 가져와 컴포넌트로 등록하는 코드가 작성되어있다.
+- 화면 관리/이동은 navigation을 사용하여 구현하고, 대표적으로 react-navigation과 react-native-navigation이 있다.
+- index.js를 navigation 형식으로 수정하면 됨
+
+App.js
+- react native는 View, Button, Text, Image 등 기본 컴포넌트를 제공한다.
+- 코드를 보면 컴포넌트가 xml 형태를 하고 있는 것을 JSX라고 한다.
+
+app.json
+- 프로젝트 명, 앱 이름이 작성되어 있는 파일.
+
+android
+- 안드로이드 네이티브 모듈을 담당한 폴더
+- 다른 api를 이용하기 위해선 네이티브 모듈을 직접 구현해야한다.
+
+ios
+- 위와 같음
+
+node_modules/
+- 프로젝트와 관련된 모듈들
+- npm을 통해 설치한 모듈들이 이곳에 위치한다.
+
+package.json
+- 프로젝트와 관련된 모듈들이 기록된 파일. 이를 통해 모듈의 버전관리를 한다.
+
+yarn.lock
+- package.json과 비슷함 yarn 관리
+=======================================================================
+
+type Props = {}는 props의 type을 정의하는 것. JAVA의 generic기능과 유사.
+
+export default는 특정 변수(함수, 클래스)를 외부에서 사용할 수 있도록함.
+
+파일 수정을 안했다면 App.js는 index.js에서 참조되고 있음.
+App이라고 선언된 클래스는 React의 Component를 extends받고 있음.
+
+
+React는 State 혹은 Props가 변경되면 이를 감지하여 render()가 수행된다.
+State: 현재 컴포넌트의 화면을 그리는 것과 관련된 대다수의 값을 갖고 있음.
+Props: 상위 컴포넌트에서 전달받은 값이 담겨져 있음. 값 수정 불가능.
+
+데이터의 흐름은 상위 컴포넌트에서 하위 컴포넌트로 단방향임.
+Props 혹은 State는 비동기적으로 업데이트가 가능하다.
+
+
+constructor(props){
+    super(props);
+}
+
+constructor : 생성자.
+==================================================
+
+View 속성
+
+flex: 비율 
+flexDirection: 배치방향. 'row' or 'column' 기본적으로 View는 세로로 쌓인다. 변경 가능
+width: 너비  숫자는 고정, %를 넣으면 상대적크기, px를 쓰고 싶으면 "20px"작성
+height: 높이
+backgroundColor: 배경색. 'red', 'blue' 등등
+
+alignItems: flexDirection의 수직 방향으로 정렬하는 것.
+ - flex-start: 가로정렬 기준으로 좌측.
+ - center: 가운데
+ - flex-end: 가로정렬 기준 우측
+ - stretch: 정렬 방향 크기를 정하지 않으면 flex-start 부터 flex-end까지 View를 늘림.
+ - baseline: 
+
+
+justifyContent: flexDirection의 수평 방향으로 정렬하는 것.
+ - flex-start: 좌측 정렬(flex 시작방향)
+ - center: 가운데
+ - flex-end: 우측 정렬(flex 끝 방향)
+ - space-between: 양쪽 정렬(좌우 끝의 여백이 없음.)
+ - space-around: 양쪽 정렬(좌우 끝의 여백이 존재)
